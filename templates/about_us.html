@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block body %}
+{%load static%}
+<div>
+<section id="page-header" class="about-header">
+    <h2>#KnowUs</h2>
+    <p>This or that, whatever befall, the farmer must feed them all!</p>
+
+
+</section>
+<section id="about-head" class="section-p1">
+    <img src="{% static 'images/us.jpg' %}"  alt="us" >
+    <div>
+        <h2>Who We Are?</h2>
+        <p>You must have heard the saying "This or that whatever we befall, the farmer must feed them all!" Countless superheros, hace been born on this earth,
+        while many are fictional, a handful are real. Well we represent the real superheros- The Farmers
+
+        Harvest Haven aims at unlocking access to safe-to-eat,pesticide screened fruits and vegetables directly sourced from our farmers.
+        We are an online platform available to you on both website and mobile application.
+
+        At Harvest Haven we are in the quest to create a positive movement- a movement aimed at reducing the gap between the consumer & a
+            farmer, the movement that gives consumers to access to safe and non toxic farmers produce a movement that also uplifts the farmer community.
+
+            Harvest Haven is agri tech start up bridging the gap between the fruits and vegetables supply chain. We connect the rural farmers to urban consumers.
+        </p>
+
+        <abbr title="">Harvest Haven</abbr>
+        <br><br>
+        <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%" direction="">Rural Farmers to Urban Consumers!</marquee>
+
+
+    </div>
+</section>
+<section id="feature" class="section-p1">
+    <div class="fe-box">
+        <img src="{% static 'images/testing.jpg' %}" alt="Residue-Testing">
+        <h6>Residue Testing</h6>
+        <p>Regular pesticide residue
+        testing</p>
+    </div>
+     <div class="fe-box">
+        <img src="{% static 'images/sourcing.jpg' %}" alt="Local-Sourcing">
+        <h6>Local Sourcing</h6>
+         <p>Sourcing locally from approved
+         farmers</p>
+    </div>
+     <div class="fe-box">
+        <img src="{% static 'images/traceability.jpg' %}" alt="Traceability">
+        <h6>Traceability</h6>
+         <p>Supply chain traceability in
+         farm travel</p>
+    </div>
+     <div class="fe-box">
+        <img src="{% static 'images/order.jpg' %}" alt="Order-Now">
+        <h6>Order Now</h6>
+         <p>Delivered Tomorrow</p>
+    </div>
+
+
+</section>
+</div>
+
+
+{% endblock %}

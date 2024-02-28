@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% if category %}
+
+<div class="text-row">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons & up to 20% off!</p>
+        <button>Shop Now</button>
+    </div>
+    <div class="image-row">
+        <img src="{% static 'images/tomato.jpg' %}" alt="tomato">
+    </div>
+
+<div class="container-fluid mb-3">
+
+ <h1 class="hed mt-5 mb-2">{{category.name}}</h1>
+ <img class="can rounded-5 " src="{{category.image.url}}" style="margin-left: 600px;" width="30%" height="600" alt="">
+ <h5 class="des mt-4 mb-3 pb-3 pt-3">{{category.desc}}</h5></div>
+{% else %}
+<section id="hero">
+    <div class="text-row">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons & up to 20% off!</p>
+        <button>Shop Now</button>
+    </div>
+    <div class="image-row">
+        <img src="{% static 'images/tomato.jpg' %}" alt="tomato">
+    </div>
+</section>
+<section id="feature" class="section-p1">
+    <div class="fe-box">
+        <img src="{% static 'images/testing.jpg' %}" alt="Residue-Testing">
+        <h6>Residue Testing</h6>
+        <p>Regular pesticide residue
+        testing</p>
+    </div>
+     <div class="fe-box">
+        <img src="{% static 'images/sourcing.jpg' %}" alt="Local-Sourcing">
+        <h6>Local Sourcing</h6>
+         <p>Sourcing locally from approved
+         farmers</p>
+    </div>
+     <div class="fe-box">
+        <img src="{% static 'images/traceability.jpg' %}" alt="Traceability">
+        <h6>Traceability</h6>
+         <p>Supply chain traceability in
+         farm travel</p>
+    </div>
+     <div class="fe-box">
+        <img src="{% static 'images/order.jpg' %}" alt="Order-Now">
+        <h6>Order Now</h6>
+         <p>Delivered Tomorrow</p>
+    </div>
+
+
+</section>
+ <h2>Featured Products</h2>
+ <p>The magic of Red in your Diet</p>
+
+{% endif %}
+<div class="container-fluid">
+    <div class="card-group mb-3" >
+      {% for i in products %}
+        {% if i.available %}
+        <a href="{% url 'shop:details' i.id %}">
+        <div class="cad border p-3 mb-5 bg-body rounded mb-4 me-2 mr-5" style="padding-left: 200px;">
+          <img src="{{i.image.url}}" height="125px" class="card-img-top rounded-4" alt="...">
+          <div class="card-body" style="margin-left: 50px;">
+            <h4 class="card-title">{{i.name}}</h4>
+            <h6 class="card-text" style="color: blue;">${{i.price}}</h6>
+            
+          </div>
+        </div>
+        </a>
+
+      
+        {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+<section id="sm-banner" class="section-p1">
+    <div class="banner-box">
+        <h2>Fresh Vegetables</h2>
+        <button class="white"> Shop Now</button>
+
+    </div>
+     <div class="banner-box banner-box2">
+        <h2>Know your Farmer</h2>
+        <button class="white">Know More</button>
+
+    </div>
+</section>
+
+<section id="banner3">
+    <div class="banner-box">
+        <h6>Control Blood Pressure, the right way!</h6>
+        <button class="white">Show More</button>
+
+    </div>
+    <div class="banner-box2">
+        <h6>Five reasons why brocoli should be a part of our diet!</h6>
+        <button class="white">Show More</button>
+
+    </div>
+    <div class="banner-box3">
+        <h6>Five tips that you prevent cough!</h6>
+        <button class="white">Show More</button>
+
+    </div>
+</div>
+
+</section>
+
+<div class="paginator mx-auto">
+
+  {% if products.paginator.num_pages > 1 %}<hr>
+    <div class="text-center">
+      {% for pg in products.paginator.page_range %}
+      <a href="?page={{pg}}" class="btn btn-dark btn-sm {% if products.number == pg %}active{% endif %}">{{pg}}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</div>
+
+
+{% endblock %}
